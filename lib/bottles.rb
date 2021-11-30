@@ -32,8 +32,7 @@ class Bottles
   end
 
   def verses(finish, start)
-    (finish).downto(start).map {|verse_number|
-    verse(verse_number) }.join("\n")
+    (finish).downto(start).map { |verse_number| verse(verse_number) }.join("\n")
   end
 
   def verse(number)
