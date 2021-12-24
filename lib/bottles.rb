@@ -29,9 +29,5 @@ class Bottles
 end
 
 def container(number)
-  if number == 1
-    "bottle"
-  else
-    "bottles"
-  end
+  number == 1 ? "bottle" : "bottles"
 end
