@@ -12,12 +12,12 @@ class Bottles
     when 0
       "#{quantity(number).capitalize} #{container(number)} of beer on the wall, " +
         "#{quantity(number)} #{container(number)} of beer.\n" +
-        "Go to the store and buy some more, " +
+        "#{action(number)}, " +
         "99 bottles of beer on the wall.\n"
     else
       "#{quantity(number).capitalize} #{container(number)} of beer on the wall, " +
         "#{quantity(number)} #{container(number)} of beer.\n" +
-        "Take #{pronoun(number)} down and pass it around, " +
+        "#{action(number)}, " +
         "#{quantity(number - 1)} #{container(number - 1)} of beer on the wall.\n"
     end
   end
@@ -33,4 +33,8 @@ end
 
 def quantity(number)
   number == 0 ? "no more" : number.to_s
+end
+
+def action(number)
+  number == 0 ? "Go to the store and buy some more" : "Take #{pronoun(number)} down and pass it around"
 end
