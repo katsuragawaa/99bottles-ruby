@@ -21,11 +21,13 @@ class BottleNumber
   attr_reader :number
 
   def self.for(number)
-    begin
-      const_get("BottleNumber#{number}")
-    rescue NameError
-      BottleNumber
-    end.new(number)
+    class_hash = Hash.new(BottleNumber) # Default if no matching key exists
+    class_hash.merge!(
+      0 => BottleNumber0,
+      1 => BottleNumber1,
+      6 => BottleNumber6
+    )
+    class_hash[number].new(number)
   end
 
   def initialize(number)
