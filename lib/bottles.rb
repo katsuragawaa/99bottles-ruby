@@ -21,13 +21,13 @@ class BottleNumber
   attr_reader :number
 
   def self.for(number)
-    class_hash = Hash.new(BottleNumber) # Default if no matching key exists
-    class_hash.merge!(
-      0 => BottleNumber0,
-      1 => BottleNumber1,
-      6 => BottleNumber6
-    )
-    class_hash[number].new(number)
+    klass = [BottleNumber6, BottleNumber1, BottleNumber0, BottleNumber]
+            .find { |candidate| candidate.handles?(number) }
+    klass.new(number)
+  end
+
+  def self.handles?(_number)
+    true
   end
 
   def initialize(number)
@@ -60,6 +60,10 @@ class BottleNumber
 end
 
 class BottleNumber0 < BottleNumber
+  def self.handles?(number)
+    number == 0
+  end
+
   def quantity
     'no more'
   end
@@ -74,6 +78,10 @@ class BottleNumber0 < BottleNumber
 end
 
 class BottleNumber1 < BottleNumber
+  def self.handles?(number)
+    number == 1
+  end
+
   def container
     'bottle'
   end
@@ -84,6 +92,10 @@ class BottleNumber1 < BottleNumber
 end
 
 class BottleNumber6 < BottleNumber
+  def self.handles?(number)
+    number == 6
+  end
+
   def container
     'six-pack'
   end
