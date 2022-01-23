@@ -8,6 +8,18 @@ class Bottles
   end
 
   def verse(number)
+    BottleVerse.new(number).verse
+  end
+end
+
+class BottleVerse
+  attr_reader :number
+
+  def initialize(number)
+    @number = number
+  end
+
+  def verse
     bottle_number = BottleNumber.for(number)
 
     "#{bottle_number} of beer on the wall, ".capitalize +
@@ -23,11 +35,11 @@ class BottleNumber
   def self.registry
     @registry ||= [BottleNumber]
   end
-  
+
   def self.register(candidate)
     registry.unshift(candidate)
   end
-  
+
   def self.inherited(candidate)
     super
     register(candidate)
