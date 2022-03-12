@@ -68,7 +68,7 @@ class BottleNumber
   end
 
   def container
-    'bottles'
+    "bottles"
   end
 
   def quantity
@@ -76,7 +76,7 @@ class BottleNumber
   end
 
   def pronoun
-    'one'
+    "one"
   end
 
   def action
@@ -94,11 +94,11 @@ class BottleNumber0 < BottleNumber
   end
 
   def quantity
-    'no more'
+    "no more"
   end
 
   def action
-    'Go to the store and buy some more'
+    "Go to the store and buy some more"
   end
 
   def successor
@@ -112,11 +112,11 @@ class BottleNumber1 < BottleNumber
   end
 
   def container
-    'bottle'
+    "bottle"
   end
 
   def pronoun
-    'it'
+    "it"
   end
 end
 
@@ -126,10 +126,10 @@ class BottleNumber6 < BottleNumber
   end
 
   def container
-    'six-pack'
+    "six-pack"
   end
 
   def quantity
-    '1'
+    "1"
   end
 end
